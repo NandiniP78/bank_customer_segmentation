@@ -155,25 +155,6 @@ def create_feature_set_B(df):
 
     return df[features].copy()
 
-
-# ==================================================
-# 6. COMPLETE FEATURE ENGINEERING PIPELINE
-# ==================================================
-
-def prepare_anomaly_features(df):
-
-    df = create_datetime_features(df)
-
-    df = create_transaction_features(df)
-
-    df = create_customer_features(df)
-
-    X_A = create_feature_set_A(df)
-
-    X_B = create_feature_set_B(df)
-
-    return df, X_A, X_B
-
 def prepare_feature_set_A(df):
     df = create_datetime_features(df)
     df = create_transaction_features(df)
