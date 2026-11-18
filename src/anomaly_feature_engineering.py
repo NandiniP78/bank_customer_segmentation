@@ -173,3 +173,11 @@ def prepare_anomaly_features(df):
     X_B = create_feature_set_B(df)
 
     return df, X_A, X_B
+
+def prepare_feature_set_A(df):
+    df = create_datetime_features(df)
+    df = create_transaction_features(df)
+
+    X_A = create_feature_set_A(df)
+
+    return df, X_A
