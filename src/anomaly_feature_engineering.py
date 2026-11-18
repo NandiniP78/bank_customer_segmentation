@@ -162,3 +162,19 @@ def prepare_feature_set_A(df):
     X_A = create_feature_set_A(df)
 
     return df, X_A
+
+def prepare_feature_set_B(df):
+
+    df = create_datetime_features(df)
+    df = create_transaction_features(df)
+
+    # Sort chronologically before calculating historical features
+    df = df.sort_values(
+        ['CustomerID', 'TransactionDate', 'TransactionTime']
+    ).copy()
+
+    df = create_customer_features(df)
+
+    X_B = create_feature_set_B(df)
+
+    return df, X_B
